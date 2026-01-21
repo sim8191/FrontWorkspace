@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>KH 게시판 - 실습문제</h1>
+    <hr>
+    <h2>메뉴</h2>
+    학습내용 클릭시 작성한 html페이지로 이동되도록 구현한다.
+
+    <li>
+        <ol type="A">
+            <li>Home</li>
+            <li><b>KH 게시판</b></li>
+            <li>학습내용
+                <ol type="I" reversed>
+                    <li><a href="./8_하이퍼링크관련태그.html">하이퍼링크 관련태그</a></li>
+                    <li><a href="./7_영역관련된태그.html">영역관 련된태그</a></li>
+                    <li><a href="./6_입력양식및폼관련태그.html">입력양식 및 폼 관련태그</a></li>
+                    <li><a href="./5_이미지및멀티미디어관련태그.html">입력양식 및 폼 관련태그</a></li>
+                    <li><a href="./4_표관련태그.html">입력양식 및 폼 관련태그</a></li>
+                    <li><a href="./3_목록관력태그.html">입력양식 및 폼 관련태그</a></li>
+                    <li><a href="./2_글자관련태그.html">입력양식 및 폼 관련태그</a></li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+    <hr>
+    <h2 id="test1">KH 게시판</h2>
+    4번 게시글 제목 클릭시 4번 게시글 내용으로 이동 되도록 구현한다. <br>
+    등록하기 버튼 클릭시 게시글 등록으로 이동하도록 구현한다.<br>
+    <br>
+    <table border="1">
+        <tr>
+            <th width="80">번호</th>
+            <th width="300">제목</th>
+            <th width="150">작성자</th>
+            <th width="80">조회수</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>오늘부터 다이어트 1일차 들어갑니다.</td>
+            <td>mkm</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>html 재밌죠?</td>
+            <td>mkm</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>새해목표</td>
+            <td>조용우</td>
+            <td>10</td>
+        </tr>
+        <tr >
+            <td><b>4</b></td>
+            <td><a href="#test1"><b>아..html</b></a></td>
+            <td><b>임세윤</b></td>
+            <td><b>100</b></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>놀란치키 또...</td>
+            <td>mkm</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <th colspan="4"><a href="#test2"><input type="button" value="등록"></a></th>
+        </tr>
+    </table>
+    <hr>
+    <h2 id="test1">4번 게시글 내용</h2>
+    행병합, 열병합을 적절히 활용하여 아래 테이블데이터를 만든다
+    <table border="1">
+        <tr>
+            <th width="80">번호</th>
+            <td colspan="3" width="600">4</td>
+        </tr>
+        <tr>
+            <th>제목</th>
+            <td colspan="3">아 html</td>
+        </tr>
+        <tr>
+            <th>작성자</th>
+            <td>임세윤</td>
+            <th>조회수</th>
+            <td>100</td>
+        </tr>
+        <tr>
+            <th rowspan="2">내용</th>
+            <td rowspan="2" colspan="2">html 공부를 시작했는데 생각보다 어렵고 <del>재미가 없습니다...</del>
+            재밌게 공부하는 꿀팁 좀 알려주십쇼.</td>
+            <th height="30" width="10">첨부이미지</th>
+        </tr>
+        <tr>
+            <td height="300"><img src="/resources/image/animal1.gif" alt=""></td>
+        </tr>
+    </table>
+    <br><br>
+    <hr>
+    <h2 id="test2">게시글 등록</h2>
+    제목, 내용은 등록시 반드시 값을 받도록 하고, 값을 전속할 서버의 주소는 insert, 전송방식은 post로 설명한다. <br>
+    제목과 내용, 첨부파일은 서버로 전송시 title, contnet, upload라는 이름으로 전송한다.
+    <div>
+    <form action="insert" method="post">
+            <fieldset>
+                <legend>게시글 등록</legend>
+            <fieldset>
+                <legend>
+                    제목
+                </legend>
+                <input type="text" size="80" name="title" required> <br>
+            </fieldset>
+            <fieldset>
+                <legend>내용</legend>
+                <textarea name="content" id="" cols="72" rows="5" style="resize: none;" required></textarea> <br>
+            </fieldset>    
+            <fieldset>
+                <legend>첨부파일</legend>
+                <input type="file" name="upload" id="" required> 
+            </fieldset>
+                <br>
+                <input type="submit" value="등록하기"> 
+            </fieldset>
+        </form>
+    </div>
+    </div>
+
+    <p>&copy; 2024 KH </p>
+</body>
+
+</html>
