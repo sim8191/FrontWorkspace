@@ -1,0 +1,41 @@
+#container1{
+    background-color: yellow;
+}
+
+/* 문제 2 */
+#container2{
+    color: red;
+}
+#container2>pre{
+    color: pink;
+}
+
+/* 문제 3 */
+#container3 > input:not(input:nth-last-of-type(submit)){
+    color: aqua;
+    border: 1px soild blue;
+}
+
+/* 문제 4 */
+#container4 > .title, h1{
+    color: green;
+    font-size: 20px;
+}
+
+/* 문제 5번 */
+/* ^시작 */
+div[class^=user]{
+    background-color: lightgray;
+}
+/* $끝 */
+div[class$=info]{
+    color: red;
+}
+/* *포함 */
+div[class*=product]{
+    background-color: coral;
+}
+/* |시작(-기준 앞에) */
+div[class|=admin]{
+    background-color: greenyellow;
+}

@@ -1,0 +1,134 @@
+.area1{ background-color: red;}
+.area2{ background-color: orangered;}
+.area3{ background-color: orange;}
+.area4{ background-color: yellow;}
+.area5{ background-color: greenyellow;}
+
+.block{
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    color: wheat;
+
+    display: block;
+}
+
+.inline{
+    display: inline;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+/* 연습문제 */
+/* #container-1{
+    border: 3px solid black;
+    width: 150px;
+    height: 300px;
+    display: block;
+}
+.test1{
+    width: 150px;
+    height: 100px;
+    background-color: red;
+    display: block;
+}
+.test2{
+    width: 150px;
+    height: 200px;
+    background-color: blue;
+    display: block;
+} */
+#container-1{
+    border: 3px solid black;
+    width: 323px;
+    height: 472px;
+}
+#container-1 > div:first-of-type{
+    height: 30%;
+    background-color: red;
+}
+#container-1 > div:last-of-type{
+    height: 70%;
+    background-color: blue;
+}
+
+/* #container-2{
+    border: 3px solid black;
+    width: 323px;
+    height: 472px;
+    display: block;
+}
+#container-2 > div:first-of-type{
+    height: 20%;
+    background-color: red;
+    display: block;
+}
+.test1{
+    height: 30%;
+    background-color: gold;
+    display: block;
+}
+#container-2 > div:last-of-type{
+    height: 50%;
+    background-color: blue;
+    display: block;
+} */
+
+#container-2{
+    border: 3px solid black;
+    width: 300px;
+    height: 440px;
+}
+#container-2 > div:first-child{
+    height: 20%;
+    background-color: red;
+}
+#container-2 > div:nth-child(2){
+    height: 30%;
+    background-color: gold;
+}
+#container-2 > div:last-child{
+    height: 50%;
+    background-color: blue;
+}
+
+/* 12시 15분 */
+#container-3{
+    border: 3px solid black;
+    width: 400px;
+    height: 200px;
+}
+#container-3 > :first-child{
+    width: 50%;
+    height: 100%;
+    background-color: blue;
+    display: inline-block;
+}
+#container-3 > :last-child{
+    width: 50%;
+    height: 100%;
+    background-color: gold;
+    display: inline-block;
+}
+
+/* 연습문제 끝 */
+.div-4{
+    border: 3px solid black;
+    height: 200px;
+}
+
+#test4{
+    background-color: darkgreen;
+    /* 요소는 존재하지만 화면에는 보이지 않는다.
+    +영역도 차지하지 않는다./ */
+    /* display: none; */
+
+    /* 요소의 가시성을 관리한는 속성*/
+    /* opacity: 0; */
+
+    /* 요소의 투명도를 0으로 만드는 속성 */
+    visibility: hidden;
+
+}

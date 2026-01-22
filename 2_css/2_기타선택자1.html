@@ -20,7 +20,7 @@
         선택자[속성*=속성값]
     </pre>
     <!-- div.div-class*3 -->
-    <div class="div-class" name="name1">div1</div>
+    <div class="div-class" name="name1">div1</div><!-- div-class이렇게 만이 쓰임 -->
     <div class="divclass" name="name2">div2</div>
     <div class="div-class" name="name3 name1">div3</div>
     <!-- div.class-div[name=name3] -->
@@ -125,6 +125,22 @@
     아이디 : <input type="text"> <br>
     비밀번호 : <input type="password">
 
+    <br>
+    <pre>
+        3) 활성화 되어있는 요소들을 선택하는 선택자
+        선택자 : enabled{
+            ...
+        }
+
+        4) 비활성화 되어있는 요소들을 선택하는 선택자
+        선택자:disabled{
+            ...
+        }
+    </pre>
+
+    <button>클릭하세요</button>
+    <button disabled>클릭하세요</button>
+    
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </body>

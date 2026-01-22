@@ -1,0 +1,23 @@
+
+
+
+/* 3순위 : 아이디선택자 */
+#test1{
+    height: 100px;
+    background-color: black;
+    color: aliceblue;
+}
+
+
+/* 4순위 : 클래스선택자 */
+.cls1{
+    background-color: blue;
+}
+
+/* 5순위 : 태그 선택자 */
+div{
+    width: 200px;
+    height: 200px;
+    background-color: rebeccapurple !important;/* 1순위 */
+}
+/* !important가 1순위 안쓰는 것을 지양*/
