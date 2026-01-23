@@ -1,0 +1,105 @@
+*{
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+#container{
+    width: 1140px;
+    margin: auto;
+}
+
+#header{
+    height: 200px;
+    display: flex;
+}
+
+#header > div:nth-child(1){
+    flex-basis: 15%;
+}
+#header > div:nth-child(2){
+    flex-basis: 70%;
+}
+#header > div:nth-child(3){
+    flex-basis: 15%;
+}
+
+#header > div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header > div:nth-child(1)>img{
+    width:  120px;
+}
+#header > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#query{
+    width: 500px;
+    padding : 10px;
+    font-weight: bold;
+    border: 2px solid #455ba8;
+    border-radius: 5px;
+}
+
+/* 두번째 줄 */
+#test2{
+    border: 1px solid rgb(255, 255, 255);
+    height: 50px;
+    display: flex;
+}
+#test2 > div:nth-child(1){
+    width:  120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+#test2 > div:nth-child(1):hover{
+    background-color: #455ba8;
+}
+
+#test2 > div:nth-child(2){
+    width:  120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+#test2 > div:nth-child(2):hover{
+    background-color: #455ba8;
+}
+#test2 > div:nth-child(3){
+    width:  120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+#test2 > div:nth-child(3):hover{
+    background-color: #455ba8;
+}
+#test2 > div:nth-child(4){
+    width:  120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+#test2 > div:nth-child(4):hover{
+    background-color: #455ba8;
+}
+#test2 > div:nth-child(5){
+    width:  120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+#test2 > div:nth-child(5):hover{
+    background-color: #455ba8;
+}
+
+

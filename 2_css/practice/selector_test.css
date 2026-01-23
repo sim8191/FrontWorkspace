@@ -1,20 +1,29 @@
-#container1{
+/* 문제 1번 */
+#container1.highlight{
     background-color: yellow;
 }
 
-/* 문제 2 */
-#container2{
+/* 문제 2 */ 
+/* #container2{
     color: red;
 }
 #container2>pre{
     color: pink;
+} */
+#container2 p{
+    color: pink;
+}
+#container2>p{
+    color: red;
 }
 
 /* 문제 3 */
-#container3 > input:not(input:nth-last-of-type(submit)){
-    color: aqua;
-    border: 1px soild blue;
+#container3>input:not(input[type=submit]){
+    border: 7px solid blue;
 }
+/* #container3 > input:not([type=submit]){ //되도록 위쪽을 쓰는 것을 권장
+    border: 1px solid blue;
+} */
 
 /* 문제 4 */
 #container4 > .title, h1{
@@ -32,10 +41,63 @@ div[class$=info]{
     color: red;
 }
 /* *포함 */
-div[class*=product]{
+/* div[class*=product]{
+    background-color: coral;
+} */
+/* div[class$=product]{
+    background-color: coral;
+} */
+div[class~=product]{
     background-color: coral;
 }
 /* |시작(-기준 앞에) */
 div[class|=admin]{
     background-color: greenyellow;
+}
+
+/* 문제 6번 */
+/* text */
+/* #container6:hover {
+    background-color: yellow;
+}
+#container6>input:hover {
+    background-color: green;
+} */
+#container6>input:focus {
+    background-color: yellow;
+}
+#container6>input:hover {
+    background-color: green;
+}
+
+/* 문제 7번 */
+/* #container7 > :nth-child(3){
+    background-color: aqua;
+} */
+#container7 > li:nth-of-type(2){
+    font-weight: bold;
+}
+
+/* 문제 8번 */
+.container8 > p:only-of-type{
+    color: blue;
+}
+/* .container8 > p:only-child{
+    color: blue;
+} */
+
+/* 문제 9번 */
+/* #container9 > [title=important-note]{
+    background: red;
+} */
+#container9 > p[title*=important]:not(p[title*=not-important]){
+    background: red;
+}
+
+/* 문제 10번 */
+/* #menu > li.active{
+    color: red;
+} */
+#menu > .active{
+    color: red;
 }
