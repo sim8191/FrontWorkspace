@@ -38,7 +38,7 @@ test3.onclick = function(){
     console.log(time2);
 
     // date객체를 yyyy/mm/dd(e) HH:MM:ss형식으로 출력하고 싶다면?
-    displayDate();
+    displayDate(time2);
 };
 
 function displayDate(date){

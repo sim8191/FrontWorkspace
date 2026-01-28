@@ -33,16 +33,32 @@
 	<div id="area"></div>
 	<script type="text/javascript">
 		function printValue() {
-			var name = document.querySelector("#name");
-    		// console.log(name.value);
-			wrapper.textContent = name; // 많이 쓰임
-   			console.log(wrapper.innerText);
-			// var name = document.querySelector("input");
-    		// console.log(inputArr[0].value);
+			// var user = document.getElementsByTagName("input")[0].value; // 첫 번째 input 요소
+			// var product = document.getElementById("pname").value;       // id가 pname인 요소
+			// var price = document.getElementsByName("price")[0].value;   // name이 price인 요소
+
+			// // 2. 결과가 출력될 div 영역을 가져옵니다.
+			// var area = document.getElementById("area");
+
+			// // 3. 문제의 이미지와 동일한 형식으로 문자열을 조합합니다. (+ 연산자 사용)
+			// // 줄바꿈을 위해 <br> 태그를 포함합니다.
+			// var result = "구입자 : " + user + "님<br>"
+			// 	+ "구입상품 : " + product + "<br>"
+			// 	+ "구매가격 : " + price + "만원";
+
+			// // 4. div 영역에 HTML 태그가 적용되도록 innerHTML을 사용하여 출력합니다.
+			// area.innerHTML = result;
+
+			var customer = document.querySelector("input[placeholder='구매자의 이름을 입력하세요.']")
 			var pname = document.querySelector("#pname");
-    		console.log(pname.value);
 			var price = document.querySelector("input[name=price]");
-    		console.log(price.value);
+
+			// var area = document.querySelector("#area") // 궅이 안해줘도 됨
+			var result = "구입자 : " + customer.value + "님<br>"
+				+ "구입상품 : " + pname.value + "<br>"
+				+ "구매가격 : " + price.value + "만원";
+
+			area.innerHTML = result;
 
 		}
 	</script>
