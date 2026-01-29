@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clock {
+            font-size: 3em;
+            text-shadow: 3px 3px 7px #000;
+        }
+
+        #countdown {
+            border: 3px solid #000;
+            font-size: 30em;
+            padding: 10px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Method</h2>
+    <input type="button" value="open" onclick="test1();">
+    <input type="button" value="popup 닫기" onclick="test2();">
+    <input type="button" value="setTimeout" onclick="test3();">
+    <input type="button" value="실습문제" onclick="test4();">
+    <input type="button" value="clearTimeout" onclick="test5();">
+    <input type="button" value="setInterval" onclick="test6();">
+    <input type="button" value="실습문제" onclick="test7();">
+    <hr>
+    <div id="clock"></div>
+    <div id="countdown"></div>
+
+    <script>
+        /*
+            window
+             - 웹브라우저에 의해 탭마다 하나씩 생성되는 객체로 브라우저를 
+             제어할 수 있는 메서드를 제공한다.
+             - 웹브라우저상의 최상위 객체로, javascript를 실행하는 환경에 따라
+             존재하지 않을 수도 있다.
+
+            open()
+             - 새창열기 메서드
+             - 새 탭으로 웹페이지를 열거나, 팝업창 형태로 웹페이지를 열 수 있다.
+
+            
+        */
+        function test1() {
+            // _self지정시 새창열기
+            // 새로 생성된 window객체를 저장.
+            // open("8_함수.html","_self","width=800","height=500","top=300", "left=300")
+            // open("8_함수.html","abc","width=800","height=500","top=300", "left=300") //"_self"부분을 내가 맘대로 지정하면 새로운 위도우가 열림
+            newWindow = open("8_함수.html",
+                "abc2", "width=800", "heigthr=500", "top=300", "left=300"
+            )
+            newWindow.alert("안녕하세요?");
+        }
+        function test2() {
+            // 윈도우 닫는 메서드
+            newWindow && newWindow.close();
+        }
+
+        function test3() {
+            /*
+                setTimeout(callback, millis)
+                 - 지정된 millis가 지나면 callback함수를 실행
+                 - timeoutApi의 메서드중 하나로, timeoutApi는 비동기적으로
+                 처리된다.
+                 - 비동기적으로 처리되는 메서드는 작업 완료를 기다리지 않는다.
+            */
+            setTimeout(function () {
+                alert("반갑습니다.");
+            }, 3000);
+
+            alert("안녕");
+        }
+
+        function test4() {
+            var i = 1;
+            console.log(1, i++); // 1, 1(2)  출력1번
+            test(i); // 2(2)
+            setTimeout(function () { //비동기 함수
+                console.log(2, i++); // 2, 2(3)  출력3번
+            }, 1000);
+            // setTimeout(function(){ //비동기 함수가 이런식으로 2개 있으면 위가 먼저 실행됨
+            //     console.log(2,i++); // 4, 3(4)  출력4번
+            // }, 1000); // i는 3이 출력 되고 최종적으로 i는 4임 
+            console.log(3, i); // 3, 2  출력2번
+        }
+        function test(i) {
+            console.log(i--)//지역함수여서 위의 i를 변화 안시킴
+        }
+
+
+        function test5() {
+            // setTimeout호출시 고유한 id값을 반환
+            var timeId = setTimeout(function () {
+                console.log("1초 후 실행");
+            }, 1000);
+
+            // 비동기 x
+            console.log(timeId)
+            clearTimeout(timeId);
+        }
+
+        function test6() {
+            /*
+                setInterval(callback, millis)
+             - millis초마다 callback함수를 지속적으로 실행하는 함수
+             - setTimeout과 같이 비동기 함수
+             - 종료를 위해서는 clearInterval함수호출
+            */
+
+            var num = 1;
+            setInterval(function () {
+                console.log(num++);
+            }, 1000);
+
+            //현제 시간
+            setInterval(function () {
+                var now = new Date();
+                var strFormat = getTimeFormatStr(now);
+                clock.innerHTML = strFormat;
+            }, 1000)
+
+        }
+        /**
+            * 00:00:00
+            * @param {Date} param - description
+            */
+        function getTimeFormatStr(time) {
+            var f = function (n) {
+                return n >= 10 ? n : "0" + n;
+            };
+            var hh = f(time.getHours());
+            var mi = f(time.getMinutes());
+            var ss = f(time.getSeconds());
+            return hh + ":" + mi + ":" + ss;
+        }
+
+
+
+        // 실습
+        /*
+            실습문제
+            버튼클릭시 카운트다운하는 함수 만들기
+            10, 9, 8, 7...1..0
+            0도달시 카운트다운 종료
+        */
+        function test7() {
+            // var num = 10;
+            // var timeId = setInterval(function () {
+            //     if (num < 1) {
+            //         clearInterval(timeId);
+            //     }
+            //     clock.innerHTML = num;
+            //     console.log(num);
+            //     num--;
+            // }, 1000);
+
+            var start = 10;
+            var timeId = setInterval(function () {
+                countdown.style.display = "block";
+                // console.log(start--);
+                countdown.innerHTML = start--;
+
+                // start == 0 && (countdown.innerHTML = "펑");
+                // start == 0 && clearInterval(timeId);
+                start < -1 && (countdown.innerHTML = "뻥!")//start == -1
+                    && clearInterval(timeId);
+            }, 1000)
+
+        }
+    </script>
+
+    <h2>BOM</h2>
+    <h3>Browser Object Model</h3>
+    <input type="button" value="navigator" onclick="test8();">
+    <input type="button" value="location" onclick="test9();">
+    <input type="button" value="history" onclick="test10();">
+    <input type="button" value="screen" onclick="test11();">
+    <script>
+        function test8() {
+            /*
+                navigator
+                 - 현재 실행중인 브라우저에 대한 정보를 가진 객체
+                 - 클라이언트의 브라우저 정보를 확인하여, 해당 브라우저에맞는
+                 적합한 컨텐츠를 제공할 때 사용.
+            */
+            console.log(navigator);
+        }
+
+        function test9() {
+            //location
+            /*
+                location
+                 - 브라우저의 주소창과 관련된 정보를 가진 객체
+                 - 브라우저의 url에서 프로토콜, 호스트네임, 포트번호, 지원경로
+                   쿼리스트링 등을 얻어올 수 있다.
+                 - 브라우저의 url을 직접 조작하여 다른 페이지를 이동이 가능
+            */
+            console.log(location);
+            // location.reload(); // 새로고침
+
+            // 페이지 이동 메서드
+            // location.assign("https://naver.com"); // 대부분 이걸씀 
+            // location.replace("https://naver.com"); // 뒤로가기 불가능 (회원가입후 뒤로가기 못하게 할때)
+            // location.href = "https://naver.com"; // 비권장
+        }
+
+        function test10() {
+            /*
+                history
+                 - 웹페이지 방문기록과 관련된 정보를 가진 객체
+                 back() : 뒤로가기
+                 forward() : 앞이로 가기
+                 go(n) : n번째 페이지로 이동하기
+            */
+            console.log(history);
+            //history.back();
+            history.forward();
+        }
+
+        function test11() {
+            /*  screen
+                - 모니터와 관련된 정보를 가진 객체
+            */
+            console.log(screen);
+
+            // 팝업을 사용자 화면의 정 가운데의 띄우기
+            var w = 300;
+            var h = 300;
+            var left = (screen.availWidth - w) / 2 + screen.availLeft;
+            var top = (screen.availHeight - h) / 2;
+
+            open("", "popup", "width=" + w + ", height=" + h + ", " +
+                "left=" + left + ", top=" + top);
+        }
+
+    </script>
+    <h2>DOM</h2>
+    <input type="button" value="createElement" onclick="test12();">
+    <input type="button" value="createImg" onclick="test13();">
+    <input type="button" value="deleteNode" onclick="deleteNode(this);">
+    <input type="button" value="실습문제" onclick="test14();">
+
+    <div class="img-wrapper"></div>
+    <div class="result"></div>
+    <script>//11시 40분
+        /*
+            Node객체
+             - 모든 Dom객체는 Node객체를 상속 받는다.
+             - html문서 내부에 작성하는 주석, 문자열, 태그는 모두 node로 생성된다.
+             - 모든 html요소는 node의 메서드를 사용할 수 있고, EventTarget의
+               이벤트 속성들을 이용할 수 있다.
+             - dom객체의 속성 및 메서드를
+              1) firstChild, lastChild, childNodes ...
+              2) contains(..), appendChild(), removeChild()...
+        */
+        function test12() { // 12시
+            // <h2>안녕하세요<h2>
+
+            // 동적으로 요소를 추가하는 방법
+            // 1. innerHTML
+            // document.querySelector(".result").innerHTML = "<h2>안녕하세요<h2>";
+
+            // 2. createElement - document에서 제공하는 요소를 생성하는 메서드.
+            var h2 = document.createElement("h2") // <h2><h2>
+            // 생성된 태그에 문자열 추가하기
+            var textNode = document.createTextNode("안녕하세요");
+
+            // 두 노드를 연결
+            h2.appendChild(textNode); // <h2>안녕하세요<h2>
+
+            // 메모리에 생성된 node를 실제 브라우저에 출력하기 위해선,
+            // DOM내부의 요소에 현재 객체를 추가해줘야 한다.
+            document.querySelector(".result")
+                .appendChild(h2);
+        }
+
+        function test13() {
+            // 동적으로 이미지 생성
+            var img = document.createElement("img"); // <img>
+            // img.src = '../resources/image/animal1.gif'
+            img.src = '../resources/image/bono.jpg'
+            img.style = "width:200px;"
+
+            document.querySelector(".img-wrapper")
+                .append(img);
+        }
+        function deleteNode(node) {
+            node.remove();
+        }
+
+        function test14(){
+            
+        } 
+    </script>
+</body>
+
+</html>
