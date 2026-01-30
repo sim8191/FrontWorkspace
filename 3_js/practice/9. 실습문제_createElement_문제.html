@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        input, textarea{
+        input,
+        textarea {
             width: 100%;
             resize: none;
             box-sizing: border-box;
         }
-        dl{
+
+        dl {
             border: 1px solid black;
         }
-        ul , li{
+
+        ul,
+        li {
             list-style: none;
             margin: 0;
             padding: 0;
         }
-        li{
+
+        li {
             border: 1px solid black;
         }
-        h5{
+
+        h5 {
             text-align: center;
             color: maroon;
         }
-        p{
+
+        p {
             text-align: justify;
             border: 1px;
             color: blueviolet;
         }
     </style>
 </head>
+
 <body>
-    
+
     <fieldset>
         <legend>게시글 생성</legend>
         <div>
@@ -41,7 +50,7 @@
                 게시글 제목 : <input type="text" name="title">
             </header>
             <section>
-                게시글 내용 : <textarea name="content"  cols="30" rows="10"></textarea>
+                게시글 내용 : <textarea name="content" cols="30" rows="10"></textarea>
             </section>
             <footer style="text-align: center;">
                 <input type="button" value="등록" onclick="insertBoard();">
@@ -58,38 +67,57 @@
             1) 게시글 제목과, 내용은 1글자 이상 작성해야 등록되도록 할것
             2) 등록 완료후 작성한 내용을 비워줄것
         */
-        function insertBoard(){
-            var title = document.querySelector("input[name=title]");
-            var h5 = document.createElement("h5")
-            var textNode = document.createTextNode(title.value);
-            h5.appendChild(textNode);
-            document.querySelector("#boardList")
-                .appendChild(h5);
 
-            var content = document.querySelector("textarea[name=content]");
-            var p = document.createElement("p")
-            var textNode = document.createTextNode(content.value);
-            p.appendChild(textNode);
-            document.querySelector("#boardList")
-                .appendChild(p);
+        function insertBoard() {
+            var title = document.querySelector('input[name=title]');
+            var content = document.querySelector('textarea[name=content]');
+
+            if(!(title.value && content.value)){
+                alert('내용을 작성하세요');
+                return;
+            }
+            // <li>
+            //     <h5></h5>
+            //     <p></p>
+            // </li>   
+
+            var li = document.createElement('li');
+            var h5 = document.createElement('h5');
+            h5.innerText = title.value;
+
+            var p = document.createElement("p");
+            p.innerText = content.value;
+
+            li.append(h5, p);//추가할 자식이 여러개일 때 1개일때는appendChild
+            boardList.appendChild(li);
+
+            title.value = "";
+            content.value= "";
         }
-        
+
         /* 
             게시글 검색기능. 게시글에 내가 입력한 내용이 포함된 게시글만 필터링 시켜서 보여주는 기능.
             검색내용을 비워둔후 재검색 눌렀을때는 전체 게시글목록이 나와야함.
         */
-        function searchTitle(){
-            var search = document.querySelector("input[name=search]");
-            var re1 = /search/gmi;
-            // var re2 = /h$/gmi;
+        function searchTitle() {
+            
+            var list = document.querySelectorAll("#boardList > li");
+            var search = document.querySelector("input[name=search]").value;
+            var fiteredList = [];
 
-            if(re1.test(search) && re2.test(search)){
-                alert("잘하셨습니다.");
-            }else{
-                alert("적합한 문자가 아닙니다");
+            for(var li of list){
+                var textContent = li.querySelector("h5").innerText;
+                li.style.display = "block";
+                if(!textContent.includes(search)){
+                    // fiteredList.push(li);
+                    // 이친구들만 보여야함
+                    li.style.display = "none";
+                }
             }
+            console.log(fiteredList); // 중간점검을 위한 코드
+
         }
-    
+
     </script>
 
     <h1>게시글 목록</h1>
@@ -103,6 +131,7 @@
             <p>게시글내용입니다.</p>
         </li>
     </ul>
-    
+
 </body>
+
 </html>

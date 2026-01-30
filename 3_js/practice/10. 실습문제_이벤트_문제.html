@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>js - 실습문제 - 이벤트</title>
   <style>
-  .btn-wrapper {
-    margin: 10px 0;
-  }
+    .btn-wrapper {
+      margin: 10px 0;
+    }
   </style>
 </head>
+
 <body>
   <h1>@실습문제_이벤트</h1>
   <!--  
@@ -35,8 +37,23 @@
     <button type="button" data-url='https://www.w3schools.com'>와삼</button>
   </div>
   <script>
-  
+    document.querySelector("#btn-generate").onclick = function(e){
+      var btns = document.querySelectorAll('.btn-wrapper > button');
+      
+      for(var button of btns){
+        var btn = document.createElement("button");//<button></button>
+        //이너html로 하면 쉬움
+        btn.innerText = button.innerText;
+        btn.dataset.url = button.dataset.url;
+
+        btn.onclick = function(e){
+          location.assign(this.dataset.url);
+        }
+        document.querySelector(".btn-wrapper").appendChild(btn);
+      }
+    }
   </script>
 
 </body>
+
 </html>
