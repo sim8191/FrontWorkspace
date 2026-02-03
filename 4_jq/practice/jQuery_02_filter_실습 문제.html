@@ -16,14 +16,13 @@
         //체크한 체크박스의 value값들을 콘솔창에 출력
         function checkBtn() {
             // 단일 값 가져오기
-            var value = $("input[name=check]:checked").val();
-            console.log(value)
+            // var value = $("input[name=check]:checked").val();
+            // console.log(value)
 
-            // var values = []; // 값을 저장할 배열
-            //  $("input[name=check]:checked").each(function(){
-            //     values.puch($(this).val())
-            //  })
-            // $("#result").text("선택한 값 : " + values.join(", "))
+            var $check = $("input").filter(":checked");
+            $check.each(function(i, input){
+                console.log($(input).val());
+            })
         }
     </script>
 
@@ -40,8 +39,10 @@
     <script>
         //선택한 select박스의 value값을 콘솔창에 출력
         function selectBtn() {
-            $("")
-            console.log(value);
+            // $("select").val;
+
+            var $option = $("option").filter(":selected");
+            console.log($option.val())
         }
     </script>
 
