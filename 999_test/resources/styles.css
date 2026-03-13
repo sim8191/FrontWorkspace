@@ -1,0 +1,144 @@
+/* 공용 스타일 작성 시작*/
+*{
+    box-sizing: border-box;
+}
+/* 공용 스타일 작성 끝*/
+
+/* Header 스타일 작성 시작*/
+#header{
+    background-color: #455ba8;
+    color: beige;
+    height: 150px;
+    
+}
+#header > div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#query {
+    margin: 0px;
+    width: 500px;
+    padding : 5px;
+    font-weight: bold;   
+    border : 2px solid #455ba8;
+    border-radius : 5px;
+} 
+#query2{
+    margin: 0px;
+    background-color: gray;
+    color: azure;
+    border : 3px solid gray;
+    border-radius : 5px;
+}
+/* Header 스타일 작성 끝*/
+
+/* 상품 스타일 작성 시작*/
+
+#content{
+    display: flex;
+    background-color: rgb(223, 223, 223);
+}
+#tes{
+    flex-basis:10%;
+}
+#상품{
+    margin: 0;
+    flex-basis:60%;
+}
+#상품 > p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+}
+#상품 > div{
+    display: inline-block;
+}
+#상품 > div{   
+    background-color: white;
+    width: 220px;
+    height: 330px;
+    margin: 10px;
+    border : 10px solid white;
+}
+#상품 > div > img{
+    
+    width: 180px;
+    height: 200px;
+}
+
+#상품 > div > #p1{
+    font-weight: bold;
+}
+
+#상품 > div > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#bt{
+    background-color: rgb(53, 52, 52);
+    color: white;
+    border : 3px solid rgb(53, 52, 52);
+    width: 180px;
+    border-radius : 5px;
+}
+
+/* 상품 스타일 작성 끝*/
+
+/* 장바구니 스타일 작성 시작*/
+#장바구니{
+    border: 1px solid white;
+    flex-basis:30%;
+    margin: 10px;
+    color: black;
+    display: block;
+    border-radius : 2px;
+    background-color: white;
+}
+#장바구니 > div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+#장바구니 > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 장바구니 스타일 작성 끝*/
+
+/* 푸터 스타일 작성 시작*/
+#footer{
+    height: 100px;
+    background-color: grey;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer > p{
+    font-weight: bold;
+}
+
+#footer > div a{
+    font-size: 14px;
+    color:black;
+    text-decoration: none;
+}
+
+#footer > div span{
+    padding : 0 10px;
+}
+/* 푸터 스타일 작성 끝*/
+

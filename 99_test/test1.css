@@ -1,0 +1,40 @@
+div{
+    box-sizing: border-box;
+    /* border: 1px solid blue; */
+}
+/* 
+#container{
+    width: 1140px;
+    margin: auto;
+}
+
+#header{
+    height: 200px;
+    display: flex;
+}
+
+#header > div:nth-child(1){
+    flex-basis: 15%;
+}
+
+#header > div:nth-child(2){
+    flex-basis: 70%;
+}
+
+#header > div:nth-child(3){
+    flex-basis: 15%;
+}
+
+#header > div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header > div:nth-child(1) > img{
+    width: 120px;
+} */
+
+
+
+

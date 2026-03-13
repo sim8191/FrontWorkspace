@@ -1,0 +1,40 @@
+#제목{
+    display: flex;
+}
+
+#제목 > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#내용{
+    
+    display: flex;
+}
+
+#내용 > legend{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#파일선택 {
+    display: flex;
+    
+}
+
+#파일선택 > legend{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#등록하기{
+    display: flex;
+    flex : 80px;
+    justify-content: center;
+    align-items: center;
+}
