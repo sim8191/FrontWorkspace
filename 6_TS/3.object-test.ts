@@ -176,24 +176,24 @@ obj.call(); // mkm
 // coin.trade = null// error
 
 // 뻑남 오류 난다 왜 지 
-// type Coin = {
-//     market : string;
-//     ticket : string;
-//     description : string;
-//     [key:string] : string|number|boolean; // 키값이 string 인친구는 string|number|boolean로 반환한다.
+type Coin = {
+    market : string,
+    ticker : string,
+    description : string,
+    [key:string] : string | number | boolean; // 키값이 string 인친구는 string|number|boolean로 반환한다.
 
-// }
-// const coin:Coin = { // 지금 여기서 오류 나고 있는디
-//     ticker : 'BTC',
-//     market : 'KRW',
-//     description : '최초의암호화폐'
-// }
-// //1) price속성 추가
-// coin.price = 10000000; //ok
-// //2) rank속성 추가
-// coin.rank = 1; // ok
-// //3) trade속성추가
-// coin.trade = true; // ok
+}
+const coin:Coin = {
+    ticker : 'BTC',
+    market : 'KRW',
+    description : '최초의암호화폐'
+}
+//1) price속성 추가
+coin.price = 10000000; //ok
+//2) rank속성 추가
+coin.rank = 1; // ok
+//3) trade속성추가
+coin.trade = true; // ok
 // coin.trade = [1,2,3,4] // error
 // coin.trade = undefined; // error
 // coin.trade = null// error

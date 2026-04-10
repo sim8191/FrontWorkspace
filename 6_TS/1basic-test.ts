@@ -65,3 +65,6 @@ let test3 : unknown = undefined; // ok
 test3 = 1234; // ok
 test3 = true; // ok
 // test1 = test3; // compile error
+
+
+export default animal;

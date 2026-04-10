@@ -37,16 +37,15 @@ const printTest:PrintType = (name, favorite) => {
 //     ???
 // }
 
-// 놓침
-// let data:string; 
-// data = racoonInfo('podong' , 10, 'male', true );
-// console.log(data);//이름 : podong , 무게 : 10 , 성별 : male, 중성화 : true
-// data = racoonInfo('coco',4, 'female' );
-// console.log(data);//이름 : coco , 무게 : 4 , 성별 : female
+let data:string; 
+data = racoonInfo('podong' , 10, 'male', true );
+console.log(data);//이름 : podong , 무게 : 10 , 성별 : male, 중성화 : true
+data = racoonInfo('coco',4, 'female' );
+console.log(data);//이름 : coco , 무게 : 4 , 성별 : female
 
-// function racoonInfo(name:string, weight:number, gender:string, 중성화?:boolean) {
-//     return "${중성화 != undefind '중성화 : ' : ''";
-// }
+function racoonInfo(name:string, weight:number, gender:string, 중성화?:boolean) {
+    return `이름 : ${name} , 무게 : ${weight} , 성별 : ${gender}${중성화 != undefined ? `, 중성화 ${중성화}` :'' }`
+}
 
 
 // 실습문제 4) sum함수의 몸통부분을 완성하시오
@@ -58,23 +57,20 @@ const printTest:PrintType = (name, favorite) => {
 // const total = sum(array2);
 // console.log(total); // 30
 const array2:(string|number|number[])[] = ['1',2,3,4,'5',[1,2,3,4,5]];
-function sum(num: (string|number|number[])[]) : number{
+function sum(array2: (string|number|number[])[]) : number{
     let sum = 0;
-    while(num === undefined){
-        if(typeof num === 'number'){
-            sum += num;
-        } else if(typeof num === 'string'){
-            sum += Number(num);
-        } else if(Array.isArray(num)){
+    for(let num of array2){
+        if(typeof num === 'number') sum+= num;
+        else if (typeof num === 'string') sum += Number(num);
+        else if (Array.isArray(num)){
             for(let n of num){
                 sum += n;
             }
-        } else{
-            throw new Error("잘못된 값입니다. : ${num}");
+        }else{
+            throw new Error(`잘못된 값입니다 : ${num}`)
         }
     }
-    return 1;
-    
+    return sum;
 }
 const total = sum(array2);
 console.log(total); // 30
@@ -107,6 +103,26 @@ console.log(total); // 30
 //     }
 // }
 
+function abc(praam: (number|string|string[]|number[])  ) : number|number[]{
+    if(typeof praam === 'string'){
+        return Number(praam);
+    }else if(typeof praam === 'number'){
+        return praam;
+    }else if(Array.isArray(praam)){
+        let numberArr:number[] = [];
+        for(let num of praam){
+            if(typeof num === 'string'){
+                numberArr.push(Number(num));
+            }else{
+                numberArr.push(num);
+            }
+        }
+        return numberArr;
+    }else{
+        throw new Error("잘못된 값입니다 "+ praam);
+    }
+}
+
 // 실습문제 6) 매개변수로 들어온 모든 숫자를 곱하여 반환하는 함수 작성
 
 // multiplyAll의 매개변수는 1개 의상의 매개인자가 들어올 수 있습니다.
@@ -121,6 +137,19 @@ console.log(total); // 30
 // console.log(multiplyAll(2, 2, 2, 2)); // 16
 // console.log(multiplyAll(2, 2, 2, 2, 2)); // 32
 // //...
+
+function multiplyAll(first : number ,...rest:number[]): number {
+    let total = first;
+    for(let num of rest){
+        total *= num
+    }
+    return total;
+}
+console.log(multiplyAll(2)); // 2
+console.log(multiplyAll(2, 2)); // 4
+console.log(multiplyAll(2, 2, 2)); // 8
+console.log(multiplyAll(2, 2, 2, 2)); // 16
+console.log(multiplyAll(2, 2, 2, 2, 2)); // 32
 
 // 실습문제 7) 다음 조건에 맞는 함수를 작성하시오
 
@@ -141,6 +170,18 @@ console.log(total); // 30
 // function assertNever(value : ??){
     
 // }
+
+type Types = string | number | boolean;
+function handleValue(value:Types) {
+    if(typeof value === 'string') console.log('문자열');
+    else if(typeof value === 'number') console.log('정수');
+    else if(typeof value === 'boolean') console.log('불린');
+    else assertNever(value);
+}
+
+function assertNever(value : never){
+    throw new Error("에러입니다.")
+}
 
 
 // 실습문제 8) 다음 조건을 만족하는 함수를 작성하시오
@@ -167,7 +208,14 @@ console.log(total); // 30
   * \[1,2,3]을 전달하면 \[3,4]를 반환합니다.
   * \[1,2,3,4]를 전달하면 \[3,4,5]를 반환합니다. */
 
+type FnType = ([first,...rest]:[number, ...number[]]) => number[]
+const fn:FnType  = ([first, ...rest]) => {
+    return rest.map( i => i+first);
+}
+//fn([]) // 컴파일에러
+fn([1]); // []
+fn([1,2]); // [3]
+fn([1,2,3]); // [3,4]
+fn([1,2,3,4]); // [3,4,5]
 
-
-
-// export default fn;
+export default fn;
