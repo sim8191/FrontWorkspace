@@ -77,7 +77,7 @@ export default function UserInfoContainer() {
 function UserInfo({ name, age, hobby, setUser }: UserInfoProps) {
   const handleChangeName = () => {
      setUser({
-       name: '학생이름', // 본인 이름으로 변경 가능
+       name: '학생이름(민경민)', // 본인 이름으로 변경 가능
        age: 20,        // 본인 나이로 변경 가능
        hobby: ['취미1', '취미2']
      });
