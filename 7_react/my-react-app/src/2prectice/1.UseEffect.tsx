@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // localStorage 저장용 키
 const STORAGE_KEY = "autosave:text";
 
+
 function AutoSaveEditor() {
   // 입력상태 관리용 state
   const [text, setText] = useState("");
@@ -19,20 +20,31 @@ function AutoSaveEditor() {
   // - 임시저장이 완료되면 saved상태값을 true로 변경되도록 하세요.
   // - 값을 입력하는 동안에는 saved상태값을 false로 변경되도록 하세요.
   useEffect(()=>{
-    const savedDate = localStorage.getItem(STORAGE_KEY);
-
-    if(savedDate){
-      setText(savedDate);
+    if(!text || text === localStorage.getItem(STORAGE_KEY)){
+      return;
     }
-  }, []); // 빈 배열 : 마운트 시 1회 실행
+    setSaved(false);
+    const timer = setTimeout(()=>{
+      localStorage.setItem(STORAGE_KEY, text);
+      setSaved(true);
+    },3000)
+    
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [text]); // 빈 배열 : 마운트 시 1회 실행
 
   // localStorage.setItem(key, value) : localStorage 데이터 저장메서드
   
   // 2. 저장된 데이터 로드 기능 구현
   // - 컴포넌트가 처음 마운트 될 때, localStorage에 저장된 데이터를 꺼내어 text에 업데이트 
   //   되도록 하세요.
-  // - 
   // - localStorage.getItem(key) : localStorage 데이터 추출 메서드
+  useEffect(() => {
+    const sevedText = localStorage.getItem(STORAGE_KEY);
+    setText(sevedText ?? "");
+  }, []) // , []이거는 의존성을 추가한거야 
+
 
   return (
     <div>
