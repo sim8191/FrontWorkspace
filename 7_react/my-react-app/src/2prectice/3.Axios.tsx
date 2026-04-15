@@ -8,6 +8,12 @@ import styles from "./PokemonSearch.module.css";
 // - api사이트에서 위 데이터들이 어떤 속성에 포함되어있는지 확인 후 , 타입으로 정의하세요.
 // -front_default는 sprites -> other -> official-artwork에 추가되어 있는 이미지를 사용하세요
 interface PokemonData {
+  name : string,
+  height : number,
+  weight : number,
+  types : {slot:number, type : {name:string, url:string}}[],
+  abilities : {is_hidden:boolean, slot:number, ability:{name:string,url:string}}[],
+  sprites : {other:{"official-artwork" : {front_default:string}}}
 }
   
 function PokemonSearch() {
@@ -23,7 +29,19 @@ function PokemonSearch() {
   // - 검색이 진행중이라면 loading상태를 변경하여, 데이터를 조회중임을 알 수있게 하세요.
   // - 검색결과가 존재하지 않는 경우 error값을 변경하여 '포켓몬을 찾을 수 없습니다'를 출력하세요.
   const handleSearch = () => {  
-    
+    if(!query){
+      return;
+    }
+    setError("");
+    setLoading(true);
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${query}/`)
+    .then((result) => {
+      setPokemon(result.data);
+    })
+    .catch((err)=>{
+      setError("ㅁ없음")
+    })
+    setLoading(false);
   };
 
   return (
@@ -44,12 +62,12 @@ function PokemonSearch() {
 
       {pokemon && (
   <div className={styles.result}>
-    <h3>{포켓몬 이름 바인딩}</h3>
+    <h3>{pokemon.name}</h3>
 
     {/* 포켓몬 이미지, 이름 바인딩 */}
     <img
-      src={}
-      alt={}
+      src={pokemon.sprites.other["official-artwork"].front_default}
+      alt={pokemon.name}
     />
     {/* 
       1. 포켓몬 타입 바인딩 
@@ -57,10 +75,10 @@ function PokemonSearch() {
       3. 포켓몬 몸무게/10 바인딩
       4. 포켓몬 기술 바인딩
     */}
-    <p>타입: </p>
-    <p>키:  m</p>
-    <p>몸무게:  kg</p>
-    <p>기술: </p>    
+    <p>타입: {pokemon.types.map(t => t.type.name).join(",")}</p>
+    <p>키:  {pokemon.height/10}m</p>
+    <p>몸무게:  {pokemon.weight/10}kg</p>
+    <p>기술: {pokemon.abilities.map(a=>a.ability.name).join(",")}</p>    
   </div>
 )}
     </div>
@@ -68,3 +86,4 @@ function PokemonSearch() {
 }
 
 export default PokemonSearch;
+// 놓침

@@ -25,6 +25,7 @@ import ContextApi from './03_globalState/1.context/Context'
 import Counter from './03_globalState/2.redex/pages/Counter'
 // import MenuEdit from './03_globalState/1) React Query 실습문제/ReactQuery'
 import TodoList from './03_globalState/2.redex/pages/toDoList'
+import PokemonSearch from './2prectice/3.Axios'
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
         <Route path='/counter' element={<Counter/>}/>
         {/* <Route path='/MenuEdit' element={<MenuEdit/>}/> */}
         <Route path='/TodoList' element={<TodoList/>}/>
+        <Route path='/PokemonSearch' element={<PokemonSearch/>}/>
 
         <Route path="*" element={
           <div>
@@ -121,6 +123,9 @@ function App() {
           </li> */}
           <li>
             <Link to="/TodoList">Redux실습문제</Link>
+          </li>
+          <li>
+            <Link to="/PokemonSearch">PokemonSearch</Link>
           </li>
         </nav>
     </>
