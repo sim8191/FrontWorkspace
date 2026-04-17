@@ -4,7 +4,7 @@ import useInput from "@/app/hooks/useInput";
 import { Menu } from "@/app/type/menu"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import RadioGroup from "./RadioGroup";
+import RadioGroup from "../RadioGroup";
 import { editMenu } from "@/app/api/menuApi.client";
 // import { putMenu } from "@/app/api/menuApi.client";
 

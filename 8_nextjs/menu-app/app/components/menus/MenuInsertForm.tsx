@@ -4,7 +4,7 @@ import useInput from "@/app/hooks/useInput"
 import { initMenu, MenuCreate } from "@/app/type/menu"
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import RadioGroup from "./RadioGroup";
+import RadioGroup from "../RadioGroup";
 import { createMenu } from "@/app/api/menuApi.client";
 
 export default function MenuInsertForm(){

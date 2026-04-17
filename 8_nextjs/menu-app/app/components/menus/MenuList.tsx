@@ -2,7 +2,7 @@
 
 import useInput from "@/app/hooks/useInput";
 import { useReducer, useState } from "react"
-import RadioGroup from "./RadioGroup";
+import RadioGroup from "../RadioGroup";
 import { Menu } from "@/app/type/menu";
 import { useRouter } from "next/navigation";
 import axios from "axios";

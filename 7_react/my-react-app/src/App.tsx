@@ -24,7 +24,7 @@ import { UserDetail, UserList, VariableRoute } from './02_react_advanced/07_Vari
 import ContextApi from './03_globalState/1.context/Context'
 import Counter from './03_globalState/2.redex/pages/Counter'
 // import MenuEdit from './03_globalState/1) React Query 실습문제/ReactQuery'
-import TodoList from './03_globalState/2.redex/pages/toDoList'
+import TodoList from './03_globalState/2.redex/pages/TodoList'
 import PokemonSearch from './2prectice/3.Axios'
 
 
