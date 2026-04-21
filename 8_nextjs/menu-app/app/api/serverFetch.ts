@@ -28,7 +28,7 @@ export const serverFetch = async(endpoint:string, options:RequestInit={}) => {
         }
     );
 
-    if(response.ok == false){
+    if(!response.ok){
         throw new Error('API ERROR'+response.status); // API ERROR 무슨에러 인지
     }
     
